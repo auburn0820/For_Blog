@@ -113,8 +113,10 @@ public:
     }
     
     Node* find_node(int value) {
-        if(this->is_empty())
+        if(this->is_empty()) {
+            cout << "Linked List is empty\n";
             return nullptr;
+        }
         Node *node = head->next;
         
         while(node != nullptr) {
@@ -125,6 +127,7 @@ public:
             node = node->next;
         }
         
+        cout << "Node having value " << value << " doesn't exist\n";
         return nullptr;
     }
     
