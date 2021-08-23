@@ -64,6 +64,8 @@ public:
         while(!is_empty()) {
             this->delete_node(this->head->next->value);
         }
+        
+        this->linked_list_size = 0;
     }
     
     void delete_node(int value) {
@@ -143,3 +145,40 @@ public:
         cout << '\n';
     }
 };
+
+int main(void) {
+    LinkedList *linkedList = new LinkedList();
+    
+    while(true) {
+        int n;
+        cin >> n;
+        
+        if(n == 0) {
+            delete linkedList;
+            break;
+        }
+        else if(n == 1) {
+            int val;
+            cin >> val;
+            linkedList->insert_node(val);
+        }
+        else if(n == 2) {
+            linkedList->print_all_nodes();
+        }
+        else if(n == 3) {
+            int val;
+            cin >> val;
+            linkedList->delete_node(val);
+        }
+        else if(n == 4) {
+            linkedList->delete_all_nodes();
+        }
+        else if(n == 5) {
+            int val;
+            cin >> val;
+            if(linkedList->find_node(val) != nullptr) {
+                cout << "Find node!\n";
+            }
+        }
+    }
+}
